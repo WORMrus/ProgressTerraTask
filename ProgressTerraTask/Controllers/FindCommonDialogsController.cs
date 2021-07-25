@@ -12,11 +12,6 @@ namespace ProgressTerraTask.Controllers
     [Route("[controller]")]
     public class FindCommonDialogsController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<FindCommonDialogsController> _logger;
         private readonly IEnumerable<RGDialogsClients> _repo;
 
