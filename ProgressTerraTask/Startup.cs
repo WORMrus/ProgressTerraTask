@@ -37,9 +37,11 @@ namespace ProgressTerraTask
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProgressTerraTask v1"));
             }
+
+            //Swagger is a part of the task so it should be used regardless of the environment
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProgressTerraTask v1"));
 
             app.UseHttpsRedirection();
 
