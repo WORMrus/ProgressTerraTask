@@ -1,4 +1,5 @@
 ﻿using iMessengerCoreAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,7 +27,9 @@ namespace ProgressTerraTask.Controllers
         }
 
         [HttpPost]
-        public Guid Post(IEnumerable<Guid> clients)
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public Guid Post([FromBody] IEnumerable<Guid> clients)
         {
             var dialogs = _repo
                 .GroupBy(x => x.IDRGDialog, x => x.IDClient)
