@@ -36,7 +36,7 @@ namespace ProgressTerraTask.Controllers
                 .Where(x => !clients.Except(x).Any())
                 .Select(x => x.Key);
 
-            return dialogs.Count() > 0 ? dialogs.First() : Guid.Empty;
+            return dialogs.Any() ? dialogs.First() : Guid.Empty;
         }
     }
 }
