@@ -27,7 +27,7 @@ namespace ProgressTerraTask.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         public ActionResult<Guid> Post(
             //It's questionable whether the length should be validated as the task does not explicitly specify that
             //The other valid returned value for 0 clients is any dialog. Removing the MinLength attribute achieves that
