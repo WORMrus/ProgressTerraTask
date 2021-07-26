@@ -31,7 +31,7 @@ namespace ProgressTerraTask.Controllers
         public ActionResult<Guid> Post(
             //It's questionable whether the length should be validated as the task does not explicitly specify that
             //The other valid returned value for 0 clients is any dialog. Removing the MinLength attribute achieves that
-            [FromBody][MinLength(1, ErrorMessage = "At least one valid client GUID is expected, 0 were provided")] IEnumerable<Guid> clients
+            [FromBody, Required][MinLength(1, ErrorMessage = "At least one valid client GUID is expected, 0 were provided")] IEnumerable<Guid> clients
             )
         {
             if (_env.IsDevelopment())
